@@ -1,41 +1,30 @@
 # Aura
 
-Personal training operations platform with an LLM-assisted coach workflow.
+A Vivacity Digital Expo app with standard navigation, theming, and UI scaffolding.
 
-## Monorepo layout
+## Overview
 
-```
-vdapp13-aura/
-├── apps/
-│   ├── api/        # Node.js API (Fastify + Prisma)
-│   └── mobile/     # Expo mobile app
-├── packages/
-│   ├── shared/     # Shared types + validators
-│   └── ui/         # Shared UI components
-├── infra/          # IaC placeholders
-├── docs/           # Architecture + ADRs
-└── .github/        # CI
-```
+- App slug: `aura`
+- iOS bundle ID: `com.vivacity.aura`
+- Android package: `com.vivacity.aura`
 
 ## Quick start
 
 ```bash
-# root
 npm install
-
-# API
-npm run dev:api
-
-# Mobile
-npm run dev:mobile
+npm run ios
 ```
 
-## Vertical slice (stubbed)
+## Scripts
 
-1. Trainer login (stub)
-2. Create client profile
-3. Assign program template
-4. Log workout
-5. Client snapshot (LLM stub)
+- `npm run ios` - run on iOS simulator
+- `npm run ios:simulator` - iOS with cache clear
+- `npm run android` - run on Android emulator
+- `npm run web` - run on web
 
-See `apps/api/src/routes` and `apps/mobile/App.tsx`.
+## App Store prep (EAS)
+
+```bash
+eas build -p ios --profile production
+eas submit -p ios --profile production
+```
