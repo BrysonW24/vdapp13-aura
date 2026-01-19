@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id
+  email     String   @unique
+  role      String
+  createdAt DateTime @default(now())
+}
+
+model Client {
+  id        String   @id
+  name      String
+  goal      String
+  coachId   String
+  createdAt DateTime @default(now())
+}
+
+model LlmRun {
+  id        String   @id
+  clientId  String
+  prompt    String
+  output    String
+  createdAt DateTime @default(now())
+}
