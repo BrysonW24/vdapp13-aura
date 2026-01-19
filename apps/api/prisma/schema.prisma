@@ -22,6 +22,65 @@ model Client {
   createdAt DateTime @default(now())
 }
 
+model ProgramTemplate {
+  id            String   @id
+  title         String
+  focus         String
+  durationWeeks Int
+  createdAt     DateTime @default(now())
+}
+
+model ClientProgram {
+  id         String   @id
+  clientId   String
+  programId  String
+  startDate  DateTime
+  createdAt  DateTime @default(now())
+}
+
+model Workout {
+  id         String   @id
+  programId  String
+  title      String
+  notes      String?
+  createdAt  DateTime @default(now())
+}
+
+model WorkoutLog {
+  id          String   @id
+  clientId    String
+  workoutId   String
+  completedAt DateTime
+  notes       String?
+}
+
+model Checkin {
+  id          String   @id
+  clientId    String
+  submittedAt DateTime
+  mood        Int
+  sleepHours  Float
+  soreness    String
+  adherence   Int
+  notes       String?
+}
+
+model Message {
+  id        String   @id
+  threadId  String
+  senderId  String
+  body      String
+  sentAt    DateTime
+}
+
+model Session {
+  id        String   @id
+  clientId  String
+  startsAt  DateTime
+  endsAt    DateTime
+  location  String?
+}
+
 model LlmRun {
   id        String   @id
   clientId  String
